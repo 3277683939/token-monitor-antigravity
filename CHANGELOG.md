@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.20 — 2026-11-02
+
+- Fix missing dashboard controls in standalone Antigravity IDE 2.6.0: discover the native Agent Webview and its cross-process conversation frame before mounting the shared widget. Keep the legacy workbench adapter for IDE 2.5.5.
+- Identify the new IDE-owned `agy --hub` HTTP port from its explicit flag and the selected process's live listeners. Ignore stale legacy log ports for the hub while preserving legacy discovery and Windows TUN fallback.
+- Restrict the nested bridge to the validated Agent pane, official wrapper and exact child frame; revoke access on navigation or teardown and discard late responses. Do not expose credentials or conversation text.
+- Cover Webview identity, unrelated extensions, frame replacement, request cancellation, IDE port ownership, legacy layouts, and package contents in automated tests. The user verified a real IDE 2.6.0 conversation on Windows; Linux/macOS signed-in IDE GUI verification remains outstanding.
+
 ## 0.8.19 — 2026-11-02
 
 - Fix extra warning and collection-progress icons appearing when an auxiliary pane narrows the composer. Correct the Shadow DOM state selectors and remove the compact rule that forced hidden SVGs to display; each control keeps one visible glyph in normal, empty, limited and processing states.

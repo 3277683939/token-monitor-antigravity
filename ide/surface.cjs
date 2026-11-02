@@ -1,6 +1,6 @@
 // Dedicated IDE DOM adapter. No host classes, model labels or translated copy
 // are used to identify the composer; only its stable ID and semantic controls.
-module.exports = function createIdeSurface() {
+module.exports = function createIdeSurface({webview=false}={}) {
   const GUID=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
   const visible=e=>e?.isConnected&&!e.closest('[hidden],[inert]')&&e.getClientRects().length>0&&getComputedStyle(e).visibility!=='hidden';
   function setMarkup(target,markup) {
@@ -97,5 +97,11 @@ module.exports = function createIdeSurface() {
     const children=[...branch.children].filter(e=>visible(e)&&e.id!=='ag-pulse-status-bar');
     return Math.ceil(children.reduce((sum,e)=>sum+(e.contains(model)?Math.max(modelWidth,e.getBoundingClientRect().width):e.getBoundingClientRect().width),0)+(parseFloat(style.columnGap)||0)*Math.max(0,children.length-1)+(parseFloat(style.paddingLeft)||0)+(parseFloat(style.paddingRight)||0)+2);
   }
+  // IDE 2.6 embeds the shared Agent application in its verified Jetski frame.
+  // Its composer and conversation owners follow the App contract, not the old
+  // workbench-only input ID or Preact tree. Reuse the shared widget's bounded
+  // discovery/identity rules; keep IDE labels and CSP-safe template creation.
+  // The runtime selects this mode only after verifying that specific frame.
+  if(webview===true)return {useSharedComposer:true,nativeReserve,setMarkup,showEmpty:true,usageHostLabel:'Antigravity IDE'};
   return {findComposer,conversationId,conversationState,nativeReserve,setMarkup,showEmpty:true,usageHostLabel:'Antigravity IDE'};
 };

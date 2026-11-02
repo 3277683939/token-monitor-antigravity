@@ -56,7 +56,7 @@ module.exports = function installAgPulseInlineWidget() {
   const visibleHostElement=element=>element.isConnected&&!element.closest('[hidden],[inert]')&&element.getClientRects().length>0&&getComputedStyle(element).visibility!=='hidden';
   const sidebarOwners=new WeakMap();
   const conversationId=()=>{
-    if(surface)return surface.conversationId(composer);
+    if(surface&&!surface.useSharedComposer)return surface.conversationId(composer);
     const anchor=composer?.box||composer?.row;
     if(!anchor?.isConnected)return null;
     const readId=element=>{const id=element.getAttribute('data-cascade-id');return GUID.test(id||'')?id.toLowerCase():null;};
@@ -459,7 +459,7 @@ module.exports = function installAgPulseInlineWidget() {
     finally{guideSaving=false;updateGuide();}
   }
   function findComposer(){
-    if(surface)return surface.findComposer(composer);
+    if(surface&&!surface.useSharedComposer)return surface.findComposer(composer);
     const visible=visibleHostElement;
     const semanticEditors=Array.from(document.querySelectorAll('[role="combobox"][contenteditable="true"],[role="textbox"][contenteditable="true"]')).filter(visible);
     const editors=Array.from(new Set([...semanticEditors,...Array.from(document.querySelectorAll('[aria-label="Message input"]')).filter(visible)]));

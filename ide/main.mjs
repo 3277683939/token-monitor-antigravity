@@ -30,8 +30,11 @@ const files=await Promise.all(['compat/i18n.cjs','compat/inline-widget.cjs','com
 const extract=s=>s.slice(s.indexOf('module.exports = ')+17).trim().replace(/;$/,'');
 if(!await ownership.claim())process.exit(0);
 const usageSource=`window.__agPulseUsageFactory=(${extract(files[4])});`;
-const owner=ownership.token,source=makeRendererSource(...files.slice(0,3),owner,ownership.startedAt,usageSource);
+const owner=ownership.token;
 const adapter=`window.__agPulseSurface=(${extract(files[3])})();`;
+const source=makeRendererSource(...files.slice(0,3),owner,ownership.startedAt,adapter+usageSource);
+const webviewAdapter=`window.__agPulseSurface=(${extract(files[3])})({webview:true});`;
+const webviewSource=makeRendererSource(...files.slice(0,3),owner,ownership.startedAt,webviewAdapter+usageSource,{allowNested:true});
 // Each workbench has its own bridge request ID and DOM conversation ID. Empty
 // composers request account quota only; no most-recent-conversation fallback.
 const snapshot=async input=>{
@@ -49,7 +52,7 @@ const snapshot=async input=>{
   if(input.usageSync===true)void usage.sync(true);
   return {...value,usage:await usage.snapshot({sync:input.usageSync===true}),enabled:true,preferences:await preferences.snapshot()};
 };
-const ui=new RuntimeUi({profile,source:adapter+source,owner,owns:()=>ownership.isOwner(),preferences,snapshot,dataDir:data,targetOrigin:()=> 'vscode-file://vscode-app',
+const ui=new RuntimeUi({profile,source,sourceForTarget:target=>target.ideWebview?webviewSource:source,owner,owns:()=>ownership.isOwner(),preferences,snapshot,dataDir:data,targetOrigin:target=>target.ideWebview?new URL(target.url).origin:'vscode-file://vscode-app',
   discover:async()=>{const result=await ideTargets(profile);debugPort=result.port;return result.targets;}});
 await mkdir(data,{recursive:true});
 await writeFile(join(data,'runtime.json'),JSON.stringify({pid:process.pid,startedAt:new Date().toISOString(),mode:'ide'}));
