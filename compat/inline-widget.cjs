@@ -582,7 +582,7 @@ module.exports = function installAgPulseInlineWidget() {
     .tm-brand{display:inline-flex;align-items:center;gap:4px;padding:2px 6px;border-radius:999px;background:rgba(139,92,246,0.13);border:1px solid rgba(139,92,246,0.3);color:#a78bfa;font-size:10px;font-weight:600;margin-right:2px;flex:none;letter-spacing:.2px}
     .tm-bolt{width:11px;height:11px;flex:none;color:#a78bfa}
     .dot{display:inline-block!important;width:5px;height:5px;border-radius:50%;flex:none;transition:all .2s ease}
-    .dot.live{display:inline-block!important;background:#22c55e!important;box-shadow:0 0 6px rgba(34,197,94,0.85);animation:tm-pulse 2s infinite}
+    .dot.live{display:inline-block!important;background:#22c55e!important;box-shadow:0 0 6px rgba(34,197,94,0.85)}
     @keyframes tm-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.82)}}
     :host(.icons-only) .tm-brand,:host(.narrow) .tm-label{display:none}
     .chip{border-radius:7px!important;transition:background-color .16s ease,box-shadow .16s ease,color .16s ease!important}
