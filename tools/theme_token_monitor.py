@@ -81,17 +81,10 @@ tm_panel_css = """
   height: 6px;
   background: #22c55e !important;
   box-shadow: 0 0 8px rgba(34, 197, 94, 0.85);
-  animation: tm-panel-pulse 2s infinite;
-}
-@keyframes tm-panel-pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.45; transform: scale(0.8); }
 }
 .version-tag {
-  background: rgba(139, 92, 246, 0.14) !important;
-  color: #c4b5fd !important;
-  border-color: rgba(139, 92, 246, 0.32) !important;
-  font-weight: 600 !important;
+  border-color: rgba(139, 92, 246, 0.28);
+  font-weight: 600;
 }
 .metric-chip {
   transition: transform 150ms cubic-bezier(.23,1,.32,1), border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease !important;
