@@ -94,7 +94,7 @@ dl{margin:0}dl>div{display:flex;justify-content:space-between;align-items:baseli
   height: 2.5px !important;
 }
 .quota-track i {
-  background: linear-gradient(90deg, #8b5cf6, #6366f1, #38bdf8) !important;
+  background-image: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.28));
 }
 .detail-card {
   border-color: rgba(139, 92, 246, 0.22) !important;

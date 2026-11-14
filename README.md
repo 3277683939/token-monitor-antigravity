@@ -11,7 +11,7 @@
 Token throughput, cache hits and context usage in the model selector row. Hover over context for five-hour and weekly quotas too.<br>
 Keep the summary visible. Hover for the details.
 
-[![Version 0.8.20](https://img.shields.io/badge/version-0.8.20-91adff?style=flat-square&labelColor=252936)](CHANGELOG.md)
+[![Version 1.0.0](https://img.shields.io/badge/version-1.0.0-8b5cf6?style=flat-square&labelColor=252936)](CHANGELOG.md)
 [![Platforms](https://img.shields.io/badge/host-Windows%20%7C%20Linux%20%7C%20macOS-83d8b9?style=flat-square&labelColor=252936)](COMPATIBILITY.md)
 [![Antigravity 2.21.1 / 2.22.0](https://img.shields.io/badge/Antigravity-2.21.1%20%2F%202.22.0-c5a0ff?style=flat-square&labelColor=252936)](COMPATIBILITY.md)
 [![MIT](https://img.shields.io/badge/license-MIT-d4d9e6?style=flat-square&labelColor=252936)](LICENSE)
@@ -20,7 +20,7 @@ Keep the summary visible. Hover for the details.
 
 </div>
 
-**v0.8.20:** Fix the missing dashboard in standalone Antigravity IDE 2.6.0. Support its Agent Webview and owned local API port while retaining legacy IDE compatibility. [Release notes](https://github.com/3277683939/token-monitor-antigravity/releases/tag/v0.8.20) · [Compatibility](COMPATIBILITY.md).
+**v1.0.0:** Rebranded as **Token Monitor** with ⚡ TM capsule status pill, pulsing live indicator, glassmorphic cards, unified `v1.0.0` Desktop + IDE packages, and automated weekly GitHub Actions sync/health checks on `3277683939/token-monitor-antigravity`. [Release notes](https://github.com/3277683939/token-monitor-antigravity/releases/tag/v1.0.0) · [Compatibility](COMPATIBILITY.md).
 
 ## Preview
 

@@ -1,8 +1,8 @@
 {
   "name": "antigrative-dashboard-ide",
-  "displayName": "Antigrative Dashboard IDE",
+  "displayName": "Token Monitor IDE",
   "publisher": "you-should-know-me",
-  "version": "0.8.20",
+  "version": "1.0.0",
   "description": "Adaptive throughput, cache and context icons with local token usage charts in the Antigravity IDE Agent composer.",
   "license": "MIT",
   "repository": {"type":"git","url":"https://github.com/3277683939/token-monitor-antigravity.git"},

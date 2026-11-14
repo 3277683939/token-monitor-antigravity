@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.0 — 2026-11-14
+
+- Rebrand UI and manifest display names (`plugin.json`, `sidecars/panel/`, `ide/package.json`, `compat/i18n.cjs`, `compat/inline-widget.cjs`) to **Token Monitor**.
+- Add `.tm-brand` (`⚡ TM`) inline capsule with pulsing live connection indicator, purple-blue glassmorphism cards, gradient progress highlights (preserving `--pulse-accent` & low-quota alert contrast), and lightning vector branding in the side panel.
+- Retarget updater (`compat/update-worker.py`), documentation, and build scripts to `3277683939/token-monitor-antigravity`, synchronizing Desktop (`1.0.0`) and IDE (`1.0.0`) release artifacts.
+- Add `.github/workflows/periodic-sync-check.yml` to run core Node + Python regressions weekly (`0 2 * * 1` UTC) and track upstream `Javis603/token-monitor` releases via GitHub Issues.
+
 ## 0.8.20 — 2026-11-02
 
 - Fix missing dashboard controls in standalone Antigravity IDE 2.6.0: discover the native Agent Webview and its cross-process conversation frame before mounting the shared widget. Keep the legacy workbench adapter for IDE 2.5.5.

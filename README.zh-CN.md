@@ -14,7 +14,7 @@
 模型选择旁只显示生成速率、缓存和上下文占用；悬停上下文，一并查看上下文、5 小时和周额度详情。<br>
 缩略信息常驻；鼠标悬停，才展开详细统计。
 
-[![Version 0.8.20](https://img.shields.io/badge/version-0.8.20-91adff?style=flat-square&labelColor=252936)](CHANGELOG.md)
+[![Version 1.0.0](https://img.shields.io/badge/version-1.0.0-8b5cf6?style=flat-square&labelColor=252936)](CHANGELOG.md)
 [![Platforms](https://img.shields.io/badge/host-Windows%20%7C%20Linux%20%7C%20macOS-83d8b9?style=flat-square&labelColor=252936)](COMPATIBILITY.md)
 [![Antigravity 2.21.1 / 2.22.0](https://img.shields.io/badge/Antigravity-2.21.1%20%2F%202.22.0-c5a0ff?style=flat-square&labelColor=252936)](COMPATIBILITY.md)
 [![MIT](https://img.shields.io/badge/license-MIT-d4d9e6?style=flat-square&labelColor=252936)](LICENSE)
@@ -23,7 +23,7 @@
 
 </div>
 
-**v0.8.20：** 修复独立 Antigravity IDE 2.6.0 中控件不显示或无法读取数据的问题，适配新版 Agent 页面和本地接口，同时保留旧版兼容。[发布说明](https://github.com/3277683939/token-monitor-antigravity/releases/tag/v0.8.20) · [兼容性](COMPATIBILITY.md)。
+**v1.0.0：** 正式升级为 **Token Monitor 魔改版**，新增 ⚡ TM 胶囊标识、绿色呼吸实时状态灯、紫蓝毛玻璃卡片与渐变高光进度条，统一桌面端与 IDE 端 `v1.0.0` 版本打包，并接入 GitHub Actions 每周自动上游巡检与自更新源 `3277683939/token-monitor-antigravity`。[发布说明](https://github.com/3277683939/token-monitor-antigravity/releases/tag/v1.0.0) · [兼容性](COMPATIBILITY.md)。
 
 ## 看看效果
 

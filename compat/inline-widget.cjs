@@ -588,7 +588,7 @@ module.exports = function installAgPulseInlineWidget() {
     .chip{border-radius:7px!important;transition:background-color .16s ease,box-shadow .16s ease,color .16s ease!important}
     .chip:hover,.chip[aria-expanded=true]{background:rgba(139,92,246,0.12)!important;box-shadow:inset 0 0 0 1px rgba(139,92,246,0.28)}
     .card{backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;border-color:rgba(139,92,246,0.28)!important;box-shadow:0 12px 36px rgba(0,0,0,0.26)!important}
-    .track i{background:linear-gradient(90deg,#8b5cf6,#6366f1,#38bdf8)!important;border-radius:3px}
+    .track i{background-image:linear-gradient(90deg,transparent,rgba(56,189,248,0.28));border-radius:3px}
     </style><div class="bar" data-i18n-aria="strip" aria-label="Dashboard statistics">
       <span class="tm-brand" title="Token Monitor • 实时监控"><svg class="tm-bolt" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 1.5L3 9.5h4.5L6.5 14.5 13 6.5H8.5l1-5z" fill="currentColor" stroke="none"/></svg><span class="tm-label">TM</span><span class="dot" id="dot" title="Connecting"></span></span>
       <button class="chip" data-card="speed" data-i18n-aria="session" hidden aria-controls="speed-card" aria-expanded="false">${svg('speed')}<span class="rounds dim" id="rounds"></span><strong id="tps">—</strong><span>tok/s</span></button>

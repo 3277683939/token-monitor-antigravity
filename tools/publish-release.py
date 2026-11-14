@@ -111,7 +111,7 @@ def publish(client, tag, commit, notes, assets):
     release = client.find(tag)
     if release and not release['draft']:
         raise ValueError('Release is already public; withdraw it before replacing its package')
-    details = {'tag_name': tag, 'target_commitish': commit, 'name': 'Antigrative Dashboard ' + tag,
+    details = {'tag_name': tag, 'target_commitish': commit, 'name': 'Token Monitor ' + tag,
                'body': notes, 'draft': True, 'prerelease': False}
     release = client.request('PATCH', 'releases/' + str(release['id']), details) if release else client.request('POST', 'releases', details)
     # All replacements happen while the release is private. Failed uploads leave

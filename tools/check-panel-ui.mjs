@@ -58,7 +58,7 @@ try{
   // active 100K host window / 20% occupancy in either language.
   await view.locator('#strip-tps').waitFor();
   assert.equal(await view.locator('#panel-version').textContent(),'v'+releaseVersion);
-  assert.equal(await view.locator('#panel-name').getAttribute('title'),'Antigrative Dashboard v'+releaseVersion);
+  assert.equal(await view.locator('#panel-name').getAttribute('title'),'Token Monitor v'+releaseVersion);
   await view.locator('#strip-context').filter({hasText:'20%'}).waitFor();
   assert.equal(await view.locator('#context-tokens').textContent(),'20K / 100K tok');
   assert.equal(await view.locator('#context-provider-limit,#context-compaction-limit,#context-host-limit,#context-note,#transcript-details').count(),0,'Compact context omits duplicate capacities and diagnostic prose');
@@ -123,7 +123,7 @@ try{
   for(const part of header.parts){assert.ok(part.width>0,`${width}px header ${part.name} is not squeezed away`);assert.ok(part.left>=header.left&&part.right<=header.right,`${width}px header ${part.name} stays inside`);assert.ok(part.top>=header.top&&part.bottom<=header.bottom);}
   for(let i=1;i<header.parts.length;i++)assert.ok(header.parts[i-1].right<=header.parts[i].left+.5,`${width}px header controls must not overlap`);
   assert.equal(await page.locator('#panel-version').isVisible(),width===440,'Badge gives its space back to controls in narrow panels');
-  assert.equal(await page.locator('#panel-name').getAttribute('title'),'Antigrative Dashboard v'+releaseVersion,'Hidden badge remains discoverable through the title');
+  assert.equal(await page.locator('#panel-name').getAttribute('title'),'Token Monitor v'+releaseVersion,'Hidden badge remains discoverable through the title');
   for(const name of ['speed','cache','context']){await page.locator(`[data-card=${name}]`).click();assert.deepEqual(await size(),initial);}
   const badgeColor=()=>page.locator('#panel-version').evaluate(node=>getComputedStyle(node).backgroundColor);
   const beforeTheme=await badgeColor();
