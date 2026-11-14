@@ -40,9 +40,10 @@ jobs:
           import json, os, urllib.request
 
           upstream = "Javis603/token-monitor"
+          token = os.environ["GH_TOKEN"]
           req = urllib.request.Request(
               f"https://api.github.com/repos/{upstream}/releases/latest",
-              headers={"User-Agent": "token-monitor-antigravity-sync"}
+              headers={"Authorization": f"Bearer {token}", "User-Agent": "token-monitor-antigravity-sync"}
           )
           with urllib.request.urlopen(req, timeout=15) as resp:
               data = json.loads(resp.read().decode("utf-8"))
@@ -53,7 +54,6 @@ jobs:
           print(f"Latest upstream release: {tag}")
 
           repo = os.environ["GITHUB_REPOSITORY"]
-          token = os.environ["GH_TOKEN"]
           issue_title = f"[上游更新巡检] Token Monitor 发布新版本 {tag}"
 
           # 检查是否已存在相同标题的 Issue
