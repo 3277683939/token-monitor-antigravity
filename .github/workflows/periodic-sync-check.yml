@@ -1,0 +1,86 @@
+name: Periodic Sync & Health Check
+
+on:
+  schedule:
+    # 每周一北京时间 10:00 (UTC 02:00) 自动运行定期检查
+    - cron: '0 2 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  health-and-upstream-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run core regression tests
+        run: |
+          node --test sidecars/panel/tests/panel-source.test.mjs sidecars/panel/tests/i18n.test.mjs sidecars/panel/tests/theme.test.mjs sidecars/panel/tests/runtime-ui.test.mjs
+          python -m unittest discover -s tests -v
+
+      - name: Check upstream Token Monitor latest release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'EOF'
+          import json, os, urllib.request
+
+          upstream = "Javis603/token-monitor"
+          req = urllib.request.Request(
+              f"https://api.github.com/repos/{upstream}/releases/latest",
+              headers={"User-Agent": "token-monitor-antigravity-sync"}
+          )
+          with urllib.request.urlopen(req, timeout=15) as resp:
+              data = json.loads(resp.read().decode("utf-8"))
+
+          tag = data.get("tag_name", "")
+          url = data.get("html_url", "")
+          body = (data.get("body") or "")[:1500]
+          print(f"Latest upstream release: {tag}")
+
+          repo = os.environ["GITHUB_REPOSITORY"]
+          token = os.environ["GH_TOKEN"]
+          issue_title = f"[上游更新巡检] Token Monitor 发布新版本 {tag}"
+
+          # 检查是否已存在相同标题的 Issue
+          issues_req = urllib.request.Request(
+              f"https://api.github.com/repos/{repo}/issues?state=all&per_page=30",
+              headers={"Authorization": f"Bearer {token}", "User-Agent": "sync-bot"}
+          )
+          with urllib.request.urlopen(issues_req, timeout=15) as r:
+              existing = json.loads(r.read().decode("utf-8"))
+
+          if any(i.get("title") == issue_title for i in existing):
+              print(f"Issue for {tag} already exists. Skipping.")
+          else:
+              payload = {
+                  "title": issue_title,
+                  "body": f"上游项目 `{upstream}` 已发布新版本 **{tag}**！\n\n🔗 Release 地址：{url}\n\n### 更新摘要：\n{body}\n\n---\n> 本 Issue 由 GitHub Actions 定期检查工作流自动生成，所有本地核心单元测试已通过。"
+              }
+              post_req = urllib.request.Request(
+                  f"https://api.github.com/repos/{repo}/issues",
+                  data=json.dumps(payload).encode("utf-8"),
+                  headers={
+                      "Authorization": f"Bearer {token}",
+                      "User-Agent": "sync-bot",
+                      "Content-Type": "application/json"
+                  },
+                  method="POST"
+              )
+              with urllib.request.urlopen(post_req, timeout=15) as pr:
+                  print("Created tracking issue:", json.loads(pr.read().decode("utf-8")).get("html_url"))
+          EOF

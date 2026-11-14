@@ -1,3 +1,10 @@
+> **⚡ Token Monitor 内置改造版（for Antigravity 2.0）**
+>
+> 本仓库基于原 `antigrative-dashboard` 对话栏原生嵌入式架构与官方精准配额底层，深度融合 **Token Monitor** 视觉设计与实时监控体验，支持：
+> - **对话栏正下方原生嵌入胶囊**：带 `⚡ TM` 紫色闪电标识、绿色实时呼吸脉冲灯、真实 `tok/s` 速率、Prompt 缓存命中率、上下文水位监控；
+> - **毛玻璃现代化仪表盘**：紫蓝流光进度条、5h/周配额精准倒计时、TTFT 延迟、正文/思考 Token 分离统计；
+> - **全自动定期检测与同步机制**：已配置 GitHub Actions 定期跟踪上游更新及自动化测试发布，支持内置自更新。
+
 <div align="center">
 
 <img src="docs/assets/hero-zh.png?v=0.8.0" width="100%" alt="Antigrative Dashboard：最新版速度、缓存和上下文控件，就在输入框旁。">
@@ -16,7 +23,7 @@
 
 </div>
 
-**v0.8.20：** 修复独立 Antigravity IDE 2.6.0 中控件不显示或无法读取数据的问题，适配新版 Agent 页面和本地接口，同时保留旧版兼容。[发布说明](https://github.com/YOU-SHOULD-KNOW-ME/antigrative-dashboard/releases/tag/v0.8.20) · [兼容性](COMPATIBILITY.md)。
+**v0.8.20：** 修复独立 Antigravity IDE 2.6.0 中控件不显示或无法读取数据的问题，适配新版 Agent 页面和本地接口，同时保留旧版兼容。[发布说明](https://github.com/3277683939/token-monitor-antigravity/releases/tag/v0.8.20) · [兼容性](COMPATIBILITY.md)。
 
 ## 看看效果
 
@@ -97,10 +104,10 @@ Linux / macOS 使用 `python3 manage.py install` 或 `sh install.sh`，启停和
 
 ### 手动安装
 
-下载 [最新 Release](https://github.com/YOU-SHOULD-KNOW-ME/antigrative-dashboard/releases/latest) 的 ZIP 并解压，或克隆仓库：
+下载 [最新 Release](https://github.com/3277683939/token-monitor-antigravity/releases/latest) 的 ZIP 并解压，或克隆仓库：
 
 ```powershell
-git clone https://github.com/YOU-SHOULD-KNOW-ME/antigrative-dashboard.git
+git clone https://github.com/3277683939/token-monitor-antigravity.git
 cd antigrative-dashboard
 python manage.py install
 ```
@@ -114,7 +121,7 @@ python manage.py install
 
 ```text
 请帮我安装并启用 Antigrative Dashboard。
-仓库：https://github.com/YOU-SHOULD-KNOW-ME/antigrative-dashboard
+仓库：https://github.com/3277683939/token-monitor-antigravity
 1. 读取 README.md、COMPATIBILITY.md、docs/CLI.md 和 ide/README.md。先用只读检查
    分析系统、可执行文件、宿主版本和已有插件配置，区分桌面 App、Antigravity CLI
    （agy）和独立 Antigravity IDE；不能仅凭系统判断安装目标。

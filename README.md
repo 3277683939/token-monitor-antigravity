@@ -1,3 +1,7 @@
+> **⚡ Token Monitor Built-in Edition (for Antigravity 2.0)**
+>
+> Refactored and enhanced from the native inline-widget architecture with **Token Monitor** aesthetics, real-time streaming TPS, cache hit tracking, and official quota countdowns. Supports automated periodic upstream checks & self-updating.
+
 <div align="center">
 
 <img src="docs/assets/hero.png?v=0.8.0" width="100%" alt="Antigrative Dashboard v0.8.0: current speed, cache and context controls beside the input.">
@@ -16,7 +20,7 @@ Keep the summary visible. Hover for the details.
 
 </div>
 
-**v0.8.20:** Fix the missing dashboard in standalone Antigravity IDE 2.6.0. Support its Agent Webview and owned local API port while retaining legacy IDE compatibility. [Release notes](https://github.com/YOU-SHOULD-KNOW-ME/antigrative-dashboard/releases/tag/v0.8.20) · [Compatibility](COMPATIBILITY.md).
+**v0.8.20:** Fix the missing dashboard in standalone Antigravity IDE 2.6.0. Support its Agent Webview and owned local API port while retaining legacy IDE compatibility. [Release notes](https://github.com/3277683939/token-monitor-antigravity/releases/tag/v0.8.20) · [Compatibility](COMPATIBILITY.md).
 
 ## Preview
 
@@ -97,10 +101,10 @@ Supported: **Windows, Linux and macOS; Antigravity desktop App 2.21.1 / 2.22.0; 
 
 > The inline model-row position has no public plugin mounting API. A standard Antigravity sidecar now attaches the widget through the existing local renderer debugging endpoint. Default installation does not modify `resources/app.asar`. This is unofficial; future changes to the host DOM, debugging channel, SDK or metrics API may require an adapter update. The native side panel remains a fallback.
 
-Download the ZIP from the [latest release](https://github.com/YOU-SHOULD-KNOW-ME/antigrative-dashboard/releases/latest), extract it to a permanent folder, or clone the repository:
+Download the ZIP from the [latest release](https://github.com/3277683939/token-monitor-antigravity/releases/latest), extract it to a permanent folder, or clone the repository:
 
 ```powershell
-git clone https://github.com/YOU-SHOULD-KNOW-ME/antigrative-dashboard.git
+git clone https://github.com/3277683939/token-monitor-antigravity.git
 cd antigrative-dashboard
 python manage.py install
 ```
@@ -116,7 +120,7 @@ The installer copies and enables the plugin and restores any exactly verified le
 
 ```text
 Install and enable Antigrative Dashboard on this computer.
-Repository: https://github.com/YOU-SHOULD-KNOW-ME/antigrative-dashboard
+Repository: https://github.com/3277683939/token-monitor-antigravity
 1. Read README.md, COMPATIBILITY.md, docs/CLI.md and ide/README.md. Inspect the OS,
    available executables, host versions and existing dashboard configuration with
    read-only checks. Distinguish desktop App, Antigravity CLI (agy) and standalone
@@ -232,7 +236,7 @@ Desktop: `~/.gemini/antigravity/sidecar_data/antigravity-pulse/panel/data/usage-
 ## Compatibility
 
 Desktop verified on **Windows 11 / Antigravity App 2.21.1 and 2.22.0**, including real context readings and the combined hover card. A separate VSIX supports standalone Antigravity IDE 2.5.5 and 2.6.0 on Windows. Other editor extensions and DSH are unsupported. Linux/macOS have automated checks; full signed-in desktop/IDE GUI verification is still open. See COMPATIBILITY.md.
-Repository presentation is inspired by [DSH Rail Music](https://github.com/YOU-SHOULD-KNOW-ME/dsh-rail-music); installation APIs differ. `dsh plugin add` cannot install this project.
+Repository presentation is inspired by [DSH Rail Music](https://github.com/3277683939/dsh-rail-music); installation APIs differ. `dsh plugin add` cannot install this project.
 
 [Full compatibility and recovery details →](COMPATIBILITY.md)
 

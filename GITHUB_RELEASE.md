@@ -17,4 +17,4 @@ A Windows IDE 2.6.0 real conversation was accepted by the user. Linux/macOS IDE 
 
 Existing statistics and settings are retained. SHA-256 files accompany both packages.
 
-[Compatibility](https://github.com/YOU-SHOULD-KNOW-ME/antigrative-dashboard/blob/v0.8.20/COMPATIBILITY.md) · [IDE installation](https://github.com/YOU-SHOULD-KNOW-ME/antigrative-dashboard/blob/v0.8.20/ide/README.md)
+[Compatibility](https://github.com/3277683939/token-monitor-antigravity/blob/v0.8.20/COMPATIBILITY.md) · [IDE installation](https://github.com/3277683939/token-monitor-antigravity/blob/v0.8.20/ide/README.md)

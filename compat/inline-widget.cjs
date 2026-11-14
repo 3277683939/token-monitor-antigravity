@@ -577,8 +577,20 @@ module.exports = function installAgPulseInlineWidget() {
     .refresh{display:inline-grid;place-items:center}.refresh[aria-busy=true]{color:var(--pulse-emphasis);cursor:wait}.refresh[aria-busy=true] svg{animation:pulse-refresh-spin 1s linear infinite;transform-origin:center}
     @keyframes pulse-refresh-spin{to{transform:rotate(360deg)}}
     @media(prefers-reduced-motion:reduce){.refresh[aria-busy=true] svg{animation:none;opacity:.65}}
+
+    /* Token Monitor Edition Enhancements */
+    .tm-brand{display:inline-flex;align-items:center;gap:4px;padding:2px 6px;border-radius:999px;background:rgba(139,92,246,0.13);border:1px solid rgba(139,92,246,0.3);color:#a78bfa;font-size:10px;font-weight:600;margin-right:2px;flex:none;letter-spacing:.2px}
+    .tm-bolt{width:11px;height:11px;flex:none;color:#a78bfa}
+    .dot{display:inline-block!important;width:5px;height:5px;border-radius:50%;flex:none;transition:all .2s ease}
+    .dot.live{display:inline-block!important;background:#22c55e!important;box-shadow:0 0 6px rgba(34,197,94,0.85);animation:tm-pulse 2s infinite}
+    @keyframes tm-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.82)}}
+    :host(.icons-only) .tm-brand,:host(.narrow) .tm-label{display:none}
+    .chip{border-radius:7px!important;transition:background-color .16s ease,box-shadow .16s ease,color .16s ease!important}
+    .chip:hover,.chip[aria-expanded=true]{background:rgba(139,92,246,0.12)!important;box-shadow:inset 0 0 0 1px rgba(139,92,246,0.28)}
+    .card{backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;border-color:rgba(139,92,246,0.28)!important;box-shadow:0 12px 36px rgba(0,0,0,0.26)!important}
+    .track i{background:linear-gradient(90deg,#8b5cf6,#6366f1,#38bdf8)!important;border-radius:3px}
     </style><div class="bar" data-i18n-aria="strip" aria-label="Dashboard statistics">
-      <span class="dot" id="dot" title="Connecting"></span>
+      <span class="tm-brand" title="Token Monitor • 实时监控"><svg class="tm-bolt" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 1.5L3 9.5h4.5L6.5 14.5 13 6.5H8.5l1-5z" fill="currentColor" stroke="none"/></svg><span class="tm-label">TM</span><span class="dot" id="dot" title="Connecting"></span></span>
       <button class="chip" data-card="speed" data-i18n-aria="session" hidden aria-controls="speed-card" aria-expanded="false">${svg('speed')}<span class="rounds dim" id="rounds"></span><strong id="tps">—</strong><span>tok/s</span></button>
       <button class="chip" data-card="cache" data-i18n-aria="cacheTitle" hidden aria-controls="cache-card" aria-expanded="false">${svg('cache')}<svg class="collection-warning" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2 15 14H1ZM8 6v4m0 2v.1"/></svg><svg class="collection-processing" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 8A5.5 5.5 0 1 1 8 2.5M8 1v3m3-2v3"/></svg><span class="collection-label"></span><span class="cache-total" id="cache-total">— tok</span><span class="dim">·</span><span data-i18n="cache">Cache hit</span><strong id="cache-rate">—</strong></button>
       <button class="chip" data-card="context" data-i18n-aria="context" hidden aria-controls="context-card" aria-expanded="false"><span class="context-ring" id="context-ring" aria-hidden="true"></span><span class="context-label" data-i18n="contextShort">Ctx</span><strong id="context-percent">—</strong></button>
@@ -601,7 +613,7 @@ module.exports = function installAgPulseInlineWidget() {
     for(const card of root.querySelectorAll('.card')){
       const notice=document.createElement('section');notice.className='collection-notice';notice.hidden=true;
       setMarkup(notice,'<strong class="collection-state"></strong><p data-i18n="collectionReason"></p><details><summary data-i18n="collectionDetails"></summary><p class="collection-budget-kind"></p><p class="collection-budget-size"></p><p data-i18n="collectionNoPartial"></p></details>');
-      const docs=document.createElement('a');docs.href='https://github.com/YOU-SHOULD-KNOW-ME/antigrative-dashboard/blob/main/docs/LONG_CONVERSATIONS.md';docs.target='_blank';docs.rel='noopener noreferrer';docs.dataset.i18n='collectionDocs';notice.querySelector('details').append(docs);
+      const docs=document.createElement('a');docs.href='https://github.com/3277683939/token-monitor-antigravity/blob/main/docs/LONG_CONVERSATIONS.md';docs.target='_blank';docs.rel='noopener noreferrer';docs.dataset.i18n='collectionDocs';notice.querySelector('details').append(docs);
       card.querySelector('.heading').after(notice);
       notice.querySelector('details').addEventListener('toggle',()=>{if(!disposed)position();});
     }

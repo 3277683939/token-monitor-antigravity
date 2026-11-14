@@ -48,3 +48,54 @@ dl{margin:0}dl>div{display:flex;justify-content:space-between;align-items:baseli
 @media(prefers-reduced-motion:reduce){.icon-button,.metric-chip{transition:none}#refresh-button[aria-busy=true] .icon{animation:none;opacity:.65}}
 
 #transcript-details{margin-top:12px;border-top:1px solid var(--pulse-separator);padding-top:10px}#transcript-details summary{cursor:pointer;font-size:11px;color:var(--pulse-label)}#transcript-total{float:right;margin-left:8px;font-variant-numeric:tabular-nums;color:var(--pulse-foreground);font-size:10px}
+
+
+/* === Token Monitor Edition Visual Polish === */
+.widget {
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-color: rgba(139, 92, 246, 0.25);
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.22);
+}
+.brand .icon {
+  color: #a78bfa !important;
+  fill: rgba(139, 92, 246, 0.2);
+}
+.connection-dot.live {
+  width: 6px;
+  height: 6px;
+  background: #22c55e !important;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.85);
+  animation: tm-panel-pulse 2s infinite;
+}
+@keyframes tm-panel-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.8); }
+}
+.version-tag {
+  background: rgba(139, 92, 246, 0.14) !important;
+  color: #c4b5fd !important;
+  border-color: rgba(139, 92, 246, 0.32) !important;
+  font-weight: 600 !important;
+}
+.metric-chip {
+  transition: transform 150ms cubic-bezier(.23,1,.32,1), border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease !important;
+}
+.metric-chip:hover {
+  transform: translateY(-1px);
+  border-color: rgba(139, 92, 246, 0.35) !important;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.08);
+}
+.metric-chip[aria-selected=true] {
+  border-color: rgba(139, 92, 246, 0.45) !important;
+}
+.metric-chip[aria-selected=true]::after {
+  background: linear-gradient(90deg, #8b5cf6, #6366f1, #38bdf8) !important;
+  height: 2.5px !important;
+}
+.quota-track i {
+  background: linear-gradient(90deg, #8b5cf6, #6366f1, #38bdf8) !important;
+}
+.detail-card {
+  border-color: rgba(139, 92, 246, 0.22) !important;
+}
