@@ -10,18 +10,19 @@ with open(p_widget, 'r', encoding='utf-8') as f:
 # 注入 Token Monitor 专属样式（放在 </style> 前）
 tm_inline_css = """
     /* Token Monitor Edition Enhancements */
-    .tm-brand{display:inline-flex;align-items:center;gap:4px;padding:2px 6px;border-radius:999px;background:rgba(139,92,246,0.13);border:1px solid rgba(139,92,246,0.3);color:#a78bfa;font-size:10px;font-weight:600;margin-right:2px;flex:none;letter-spacing:.2px}
-    .tm-bolt{width:11px;height:11px;flex:none;color:#a78bfa}
-    .dot{display:inline-block!important;width:5px;height:5px;border-radius:50%;flex:none;transition:all .2s ease}
+    .tm-brand{display:inline-flex;align-items:center;gap:3px;padding:2px 5px;border-radius:999px;background:rgba(139,92,246,0.13);border:1px solid rgba(139,92,246,0.3);color:#a78bfa;flex:none}
+    .tm-bolt{width:10px;height:10px;flex:none;color:#a78bfa}
+    .dot{display:inline-block!important;width:5px;height:5px;border-radius:50%;flex:none}
     .dot.live{display:inline-block!important;background:#22c55e!important;box-shadow:0 0 6px rgba(34,197,94,0.85)}
-    @keyframes tm-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.82)}}
-    :host(.icons-only) .tm-brand,:host(.narrow) .tm-label{display:none}
+    :host(.icons-only) .tm-brand{display:none}
+    :host(:not(.icons-only)) .bar{gap:4px}
+    :host(:not(.icons-only)) .chip{padding:3px 4px}
     .chip{border-radius:7px!important;transition:background-color .16s ease,box-shadow .16s ease,color .16s ease!important}
     .chip:hover,.chip[aria-expanded=true]{background:rgba(139,92,246,0.12)!important;box-shadow:inset 0 0 0 1px rgba(139,92,246,0.28)}
     .card{backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;border-color:rgba(139,92,246,0.28)!important;box-shadow:0 12px 36px rgba(0,0,0,0.26)!important}
     .track i{background-image:linear-gradient(90deg,transparent,rgba(56,189,248,0.28));border-radius:3px}
     </style><div class="bar" data-i18n-aria="strip" aria-label="Dashboard statistics">
-      <span class="tm-brand" title="Token Monitor • 实时监控"><svg class="tm-bolt" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 1.5L3 9.5h4.5L6.5 14.5 13 6.5H8.5l1-5z" fill="currentColor" stroke="none"/></svg><span class="tm-label">TM</span><span class="dot" id="dot" title="Connecting"></span></span>"""
+      <span class="tm-brand" title="Token Monitor • 实时监控"><svg class="tm-bolt" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 1.5L3 9.5h4.5L6.5 14.5 13 6.5H8.5l1-5z" fill="currentColor" stroke="none"/></svg><span class="dot" id="dot" title="Connecting"></span></span>"""
 
 old_anchor = """    </style><div class="bar" data-i18n-aria="strip" aria-label="Dashboard statistics">
       <span class="dot" id="dot" title="Connecting"></span>"""

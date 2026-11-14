@@ -579,18 +579,19 @@ module.exports = function installAgPulseInlineWidget() {
     @media(prefers-reduced-motion:reduce){.refresh[aria-busy=true] svg{animation:none;opacity:.65}}
 
     /* Token Monitor Edition Enhancements */
-    .tm-brand{display:inline-flex;align-items:center;gap:4px;padding:2px 6px;border-radius:999px;background:rgba(139,92,246,0.13);border:1px solid rgba(139,92,246,0.3);color:#a78bfa;font-size:10px;font-weight:600;margin-right:2px;flex:none;letter-spacing:.2px}
-    .tm-bolt{width:11px;height:11px;flex:none;color:#a78bfa}
-    .dot{display:inline-block!important;width:5px;height:5px;border-radius:50%;flex:none;transition:all .2s ease}
+    .tm-brand{display:inline-flex;align-items:center;gap:3px;padding:2px 5px;border-radius:999px;background:rgba(139,92,246,0.13);border:1px solid rgba(139,92,246,0.3);color:#a78bfa;flex:none}
+    .tm-bolt{width:10px;height:10px;flex:none;color:#a78bfa}
+    .dot{display:inline-block!important;width:5px;height:5px;border-radius:50%;flex:none}
     .dot.live{display:inline-block!important;background:#22c55e!important;box-shadow:0 0 6px rgba(34,197,94,0.85)}
-    @keyframes tm-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.82)}}
-    :host(.icons-only) .tm-brand,:host(.narrow) .tm-label{display:none}
+    :host(.icons-only) .tm-brand{display:none}
+    :host(:not(.icons-only)) .bar{gap:4px}
+    :host(:not(.icons-only)) .chip{padding:3px 4px}
     .chip{border-radius:7px!important;transition:background-color .16s ease,box-shadow .16s ease,color .16s ease!important}
     .chip:hover,.chip[aria-expanded=true]{background:rgba(139,92,246,0.12)!important;box-shadow:inset 0 0 0 1px rgba(139,92,246,0.28)}
     .card{backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;border-color:rgba(139,92,246,0.28)!important;box-shadow:0 12px 36px rgba(0,0,0,0.26)!important}
     .track i{background-image:linear-gradient(90deg,transparent,rgba(56,189,248,0.28));border-radius:3px}
     </style><div class="bar" data-i18n-aria="strip" aria-label="Dashboard statistics">
-      <span class="tm-brand" title="Token Monitor • 实时监控"><svg class="tm-bolt" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 1.5L3 9.5h4.5L6.5 14.5 13 6.5H8.5l1-5z" fill="currentColor" stroke="none"/></svg><span class="tm-label">TM</span><span class="dot" id="dot" title="Connecting"></span></span>
+      <span class="tm-brand" title="Token Monitor • 实时监控"><svg class="tm-bolt" viewBox="0 0 16 16" aria-hidden="true"><path d="M9.5 1.5L3 9.5h4.5L6.5 14.5 13 6.5H8.5l1-5z" fill="currentColor" stroke="none"/></svg><span class="dot" id="dot" title="Connecting"></span></span>
       <button class="chip" data-card="speed" data-i18n-aria="session" hidden aria-controls="speed-card" aria-expanded="false">${svg('speed')}<span class="rounds dim" id="rounds"></span><strong id="tps">—</strong><span>tok/s</span></button>
       <button class="chip" data-card="cache" data-i18n-aria="cacheTitle" hidden aria-controls="cache-card" aria-expanded="false">${svg('cache')}<svg class="collection-warning" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2 15 14H1ZM8 6v4m0 2v.1"/></svg><svg class="collection-processing" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.5 8A5.5 5.5 0 1 1 8 2.5M8 1v3m3-2v3"/></svg><span class="collection-label"></span><span class="cache-total" id="cache-total">— tok</span><span class="dim">·</span><span data-i18n="cache">Cache hit</span><strong id="cache-rate">—</strong></button>
       <button class="chip" data-card="context" data-i18n-aria="context" hidden aria-controls="context-card" aria-expanded="false"><span class="context-ring" id="context-ring" aria-hidden="true"></span><span class="context-label" data-i18n="contextShort">Ctx</span><strong id="context-percent">—</strong></button>
